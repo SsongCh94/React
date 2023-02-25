@@ -1,29 +1,20 @@
 import React from 'react'
-import Child from 'Child'
-
-// function App() {
-//   //구조분해할당!
-  
-//   const testObj = {
-//     name: 'ssong',
-//     age: '30',
-//     company: 'Sparta'
-//   }
-
-//   const {name, age, company} = testObj;
-  
-//   console.log('name', name)
-//   console.log('age', age)
-//   console.log('company', company)
-
-//   return <div>App</div>
-// }
 
 function App() {
-  const name = 'test';
+  
+  // hook
+  // useState('initial Value');
+  // --> [state, setState]
 
-  return <Child age={30} name={name}>이름</Child>
+  // const [state, setState] = useState('initial Value');
+
+  const [count, setCount] = useState(0);
+  const [todoList, setTodoList] = useState([]);
+ 
+
+  return (
+    <div>STATE에 대해서</div>
+  )
 }
 
 export default App
-
