@@ -1,69 +1,27 @@
 import React, { useState } from "react";
 
-// function App() {
-//   const [id, setId] = useState("");
-//   const [password, setPassword] = useState("");
-
-//   return (
-//     <div>
-//       아이디 : <input
-//       type={'text'}
-//       value={id}
-//       onChange={function(event){
-//         setId(event.target.value)
-//       }}
-//       />
-//       <br />
-//       비밀번호 : <input
-//       type={'password'}
-//       value={password}
-//       onChange={function(event){
-//         setPassword(event.target.value)
-//       }}
-//       />
-//       <br />
-//       <button onClick={function (){
-//         alert('입력된 아이디 {id} 입력된 비번 {password}')
-//       }}>로그인</button>
-//     </div>
-//   );
-// }
-
 function App() {
-  const [id, setId] = useState("");
-  const [password, setPassword] = useState("");
-
-  const onIdChangeHandler = (event) => {
-    setId(event.target.value);
-  };
-
-  const onPwChangeHandler = (event) => {
-    setPassword(event.target.value);
-  };
+  const [obj, setObj] = useState({
+    name: "ssong",
+    age: 30,
+  });
 
   return (
     <div>
-      <div>
-        아이디 : <input type={"text"} value={id} onChange={onIdChangeHandler} />
-      </div>
-      <div>
-        비밀번호 :{" "}
-        <input
-          type={"password"}
-          value={password}
-          onChange={onPwChangeHandler}
-        />
-      </div>
+      <div>{obj.name}</div>
+      <div>{obj.age}</div>
+      <button onClick={() => {
+        //새로운 객체를 만들어줘야 한다.
+        // obj의 name값을 chulhwan 으로 먼저 바꿔준다.
+        obj.name = 'chulhwan';
+        obj.age = '20 으로 회춘';
+        //새로운 주소값으로 obj1 과 같은 객체를 만들어준다.
+        const obj2 = {...obj};
+        setObj(obj2);
 
-      <button
-        onClick={() => {
-          alert(`입력된 아이디 ${id}, 입력된 비번 ${password}`);
-          setId('');
-          setPassword('');
-        }}
-      >
-        로그인
-      </button>
+        // obj.name = 'chulhwan';
+        // setObj(obj)
+      }}>클릭!</button>
     </div>
   );
 }
