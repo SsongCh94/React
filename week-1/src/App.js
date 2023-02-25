@@ -1,26 +1,30 @@
 import React from "react";
 
+
+//props 라는 이름으로 input 을 받아서 위에서 내려온 데이터를 전달받는다.
+//props 를 객체 형태로 전달받게 된다.
+function Son(props) {
+  console.log('props', props)
+  return <button>{props.gfName}의 손자이다.</button>;
+}
+
+//부모컴포넌트에서 자식컴포넌트로 데이터를 전달했다.
+function Father(p) {
+  const name = '송아빠';
+  const gfName = p.grandFatherName;
+  console.log('p', p)
+  return <Son gfName={gfName}/>;
+}
+
+function GrandFather() {
+  const name = '송할배';
+  return <Father grandFatherName={name}/>;
+}
+
 function App() {
-  const number = 1;
-
-  const pTagStyle = {
-    color: 'red',
-  };
-
-  const arr = [1, 2, 3, 4, 5];
-  const arr1 = arr.map(x => x+1);
-
-
   return (
     <div>
-      <p style = {pTagStyle}>안녕하세요 리액트입니다.</p>
-      {/* 주석을 사용하는 방법 */}
-      {/* 삼항 연산자 사용 */}
-      <p style ={pTagStyle}>
-        {number > 10 ? number + "은 10보다 크다." : number + "은 10보다 작다."}
-      </p>
-      <p>{arr}</p>
-      <p>{arr1}</p>
+      <GrandFather />
     </div>
   );
 }
