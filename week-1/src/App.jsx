@@ -2,6 +2,12 @@ import React, { useState } from "react";
 
 function App() {
   let [count, setCount] = useState(0);
+
+  const minusButtonClickHandler = () => {
+    count--
+    setCount(count)
+  }
+
   let totalStyle = {
     backgroundColor: "beige",
     width: "300px",
@@ -35,10 +41,7 @@ function App() {
           +1
         </button>
         <button
-          onClick={() => {
-            count--;
-            setCount(count);
-          }}
+          onClick={minusButtonClickHandler}
         >
           -1
         </button>
