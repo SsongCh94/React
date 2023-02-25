@@ -1,20 +1,22 @@
-import React from 'react'
+import React, { useState } from "react";
 
 function App() {
-  
-  // hook
-  // useState('initial Value');
-  // --> [state, setState]
-
-  // const [state, setState] = useState('initial Value');
-
-  const [count, setCount] = useState(0);
-  const [todoList, setTodoList] = useState([]);
- 
+  const [fruit, setFruit] = useState("");
 
   return (
-    <div>STATE에 대해서</div>
-  )
+    <div>
+      과일 :{" "}
+      <input
+        value={fruit}
+        onChange={function (event) {
+          // console.log('event', event.target.value);
+          setFruit(event.target.value);
+        }}
+      />
+      <br /> <br />
+      {fruit}
+    </div>
+  );
 }
 
-export default App
+export default App;
