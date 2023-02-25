@@ -1,34 +1,29 @@
-import React from "react";
-import Layout from "Layout";
-
-
-//Children 용법
-
-
-//children 기본 틀
+import React from 'react'
+import Child from 'Child'
 
 // function App() {
-//   return <User>안녕하세요!</User>;
+//   //구조분해할당!
+  
+//   const testObj = {
+//     name: 'ssong',
+//     age: '30',
+//     company: 'Sparta'
+//   }
+
+//   const {name, age, company} = testObj;
+  
+//   console.log('name', name)
+//   console.log('age', age)
+//   console.log('company', company)
+
+//   return <div>App</div>
 // }
-
-// function User(props) {
-//   console.log('props', props)   //  {children: '안녕하세요!'}
-//   return <div></div>;
-// }
-
-//////////////////////////////////
-
-//응용방법 - 최상단에 import Layout from "Layout" 을 넣어 Layout.js 를 임포트
-
 
 function App() {
-  return (
-    <Layout>
-    <div>App 컴포넌트에서 보낸 값 입니다.</div>
-  </Layout>
-  );
+  const name = 'test';
+
+  return <Child age={30} name={name}>이름</Child>
 }
 
+export default App
 
-
-export default App;
