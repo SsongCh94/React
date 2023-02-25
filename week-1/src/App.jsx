@@ -1,29 +1,129 @@
 import React, { useState } from "react";
 
 function App() {
-  const [obj, setObj] = useState({
-    name: "ssong",
-    age: 30,
-  });
+  let [count, setCount] = useState(0);
+  let totalStyle = {
+    backgroundColor: "beige",
+    width: "300px",
+    height: "300px",
+    margin: "100px",
 
+    border: "10px solid green",
+    borderRadius: "50%",
+
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+  };
   return (
-    <div>
-      <div>{obj.name}</div>
-      <div>{obj.age}</div>
-      <button onClick={() => {
-        //새로운 객체를 만들어줘야 한다.
-        // obj의 name값을 chulhwan 으로 먼저 바꿔준다.
-        obj.name = 'chulhwan';
-        obj.age = '20 으로 회춘';
-        //새로운 주소값으로 obj1 과 같은 객체를 만들어준다.
-        const obj2 = {...obj};
-        setObj(obj2);
-
-        // obj.name = 'chulhwan';
-        // setObj(obj)
-      }}>클릭!</button>
+    <div
+      style={totalStyle}
+    >
+      {count} <br />
+      <div
+        style={{
+          display: "flex",
+        }}
+      >
+        <button
+          onClick={() => {
+            count++;
+            setCount(count);
+          }}
+        >
+          +1
+        </button>
+        <button
+          onClick={() => {
+            count--;
+            setCount(count);
+          }}
+        >
+          -1
+        </button>
+      </div>
     </div>
   );
 }
 
 export default App;
+
+
+/////////
+
+/// css 바꾸기는 아직 안배웠다..... state 로 변경이 안된단다...
+// 그 뭐냐 useRef 를 써야한단다..... 나중에 다시 해보자
+
+
+
+// import React, { useState } from "react";
+
+// function App() {
+//   let [count, setCount] = useState(0);
+  // let totalStyle = {
+  //   backgroundColor: "beige",
+  //   width: "300px",
+  //   height: "300px",
+  //   margin: "100px",
+
+  //   border: "10px solid green",
+  //   borderRadius: "50%",
+
+  //   display: "flex",
+  //   flexDirection: "column",
+  //   justifyContent: "center",
+  //   alignItems: "center",
+  // }
+
+//   let [totalStyle, setTotalStyle] = useState({
+//     backgroundColor: "beige",
+//     width: "300px",
+//     height: "300px",
+//     margin: "100px",
+
+//     border: "10px solid green",
+//     borderRadius: "10px",
+
+//     display: "flex",
+//     flexDirection: "column",
+//     justifyContent: "center",
+//     alignItems: "center",
+//   });
+
+//   return (
+//     <div
+//       style={totalStyle}
+//     >
+//       {count} <br />
+//       <div
+//         style={{
+//           display: "flex",
+//         }}
+//       >
+//         <button
+//           onClick={() => {
+//             count++;
+//             setCount(count);
+//           }}
+//         >
+//           +1
+//         </button>
+//         <button
+//           onClick={() => {
+//             count--;
+//             setCount(count);
+//             totalStyle.borderRadius += 10
+//             // totalStyle.borderRadius
+//             let styleAdd = {totalStyle}
+//             console.log(totalStyle.borderRadius)
+//           }}
+//         >
+//           -1
+//         </button>
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default App;
