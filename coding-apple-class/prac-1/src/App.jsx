@@ -8,6 +8,7 @@ function App() {
     "남자 패딩 추천",
   ]);
   let [likes, setLikes] = useState(0);
+  let [modal, setModal] = useState(false);
 
   return (
     <div className="App">
@@ -15,18 +16,7 @@ function App() {
         <h4>React Blog</h4>
       </div>
 
-      {/* <button onClick={() => {
-        let newTitle = [...title];
-        newTitle[0] = '여자 코트 어쩌구저쩌구';
-        setTitle(newTitle)
-      }}>제목바꾸기</button>
-
-      <button onClick={() => {
-        let newTitle = [...title];
-        setTitle(newTitle.sort())
-      }}> 가나다 정렬 </button> */}
-
-      <div className="list">
+      {/* <div className="list">
         <h4>
           {title[0]} <span onClick={() => setLikes(likes++)}>👍</span> {likes}{" "}
         </h4>
@@ -36,13 +26,22 @@ function App() {
         <h4>{title[1]}</h4>
         <p>3월 2일 발행</p>
       </div>
+
       <div className="list">
-        <h4>{title[2]}</h4>
+        <h4 onClick={() => setModal(!modal)}>{title[2]}</h4>
         <p>3월 2일 발행</p>
-      </div>
+      </div> */}
 
-      <Modal />
+      {title.map((item, idx) => {
+        return (
+          <div className="list">
+            <h4 onClick={() => setModal(!modal)}>{title[idx]}</h4>
+            <p>3월 2일 발행</p>
+          </div>
+        );
+      })}
 
+      {modal ? <Modal /> : null}
     </div>
   );
 }
