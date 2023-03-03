@@ -1,8 +1,9 @@
 import "./App.css";
 import styled from "styled-components";
+import GlobalStyle from "./GlobalStyle";
 
 const StContainer = styled.div`
-  display: flex;
+  /* display: flex; */
 `
 
 const StBox = styled.div`
@@ -28,9 +29,11 @@ const getBoxName = (color) => {
       return '검정 박스';
   }
 }
-
+ 
 function App() {
   return (
+    <>
+    <GlobalStyle />
     <StContainer>
     {
       boxList.map((box) => {
@@ -38,6 +41,8 @@ function App() {
       })
     }
     </StContainer>
+    </>
+    
   );
 }
 
