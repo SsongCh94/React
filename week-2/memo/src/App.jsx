@@ -1,24 +1,39 @@
 import { useState } from "react";
 import styled from "styled-components";
 import "./App.css";
-import Box from "./components/Box";
+import Box1 from "./components/Box1";
+import Box2 from "./components/Box2";
+import Box3 from "./components/Box3";
+
 
 function App() {
+  console.log('App 컴포넌트가 렌더링되었습니다.');
   const [count, setCount] = useState(0);
+
+  // 1 증가
+  const onPlusButtonClickHandler = () => {
+    setCount((value) => value + 1)
+  };
+
+  // 1 감소
+  const onMinusButtonClickHandler = () => {
+    setCount((value) => value - 1)
+  };
 
   return (
     <Home>
         <h1>카운트 예제입니다!</h1>
-        현재 카운트 : {count}
+        <p>현재 카운트 : {count}</p>
       <div>
-        <Button onClick={() => setCount((item) => item + 1)}> + </Button>
-        <Button onClick={() => setCount((item) => item - 1)}> - </Button>
+        <Button onClick={onPlusButtonClickHandler}> + </Button>
+        <Button onClick={onMinusButtonClickHandler}> - </Button>
       </div>
       <BoxList>
-        <Box BgColor={"green"} text={"greenBox"} />
-        <Box BgColor={"blue"} text={"blueBox"} />
-        <Box BgColor={"red"} text={"redBox"} />
+        <Box1 />
+        <Box2 />
+        <Box3 />
       </BoxList>
+
     </Home>
   );
 }
@@ -37,13 +52,18 @@ function App() {
   `;
 
   const Home = styled.div`
-    width: 100%;
-    height: 700px;
+    width: 900px;
+    height: 800px;
+
+    margin: 30px;
 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+
+    border: 6px solid green;
+    border-radius: 20px;
   `;
 
   const Button = styled.button`
