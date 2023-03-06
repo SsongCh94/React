@@ -1,4 +1,4 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import './App.css';
 
 function App() {
@@ -9,12 +9,27 @@ function App() {
       return state.counter;
     });
 
+    // dispatch를 가져와보자.
+    const dispatch = useDispatch();
+
     console.log('counter ->', counter.number)
 
   return (
-    <div>
-      Redux!
-    </div>
+    <>
+    <div>현재 카운트 : {counter.number}</div>
+    <button onClick={()=> {
+      // counter + 1 해주는 로직
+      dispatch({
+        type:'PLUS_ONE',
+      })
+    }}>+</button>
+    <button onClick={()=>{
+      dispatch({
+        type:'MINUS_ONE',
+      })
+    }}>-</button>
+    </>
+    
   );
 }
 
