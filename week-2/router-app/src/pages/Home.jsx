@@ -6,8 +6,9 @@ function Home() {
 
   return (
     <div>
-      Home
+      {Home}
       <br />
+
       <button
         onClick={() => {
           navigate("/works");
