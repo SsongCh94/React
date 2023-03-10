@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { combineReducers, createStore } from "redux";
+// import { combineReducers, createStore } from "redux";
 import counter from "../modules/counter";
 
 // ASIS : 일반 리듀서
