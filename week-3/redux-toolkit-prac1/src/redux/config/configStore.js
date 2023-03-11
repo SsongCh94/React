@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 // import { combineReducers, createStore } from "redux";
-import counter from "../modules/counter";
+import counter from "../modules/counterSlice";
 
 // ASIS : 일반 리듀서
 // const rootReducer = combineReducers({
@@ -12,7 +12,7 @@ import counter from "../modules/counter";
 // TODO : Redux Toolkit
 const store = configureStore({
   reducer: {
-    counter: counter,
+    counter,
   },
 });
 

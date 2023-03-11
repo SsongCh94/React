@@ -1,25 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./App.css";
-import { addNumber, minusNumber } from "./redux/modules/counter";
+import {
+  addNumber,
+  minusNumber,
+  __addNumber,
+  __minusNumber,
+} from "./redux/modules/counterSlice";
 
 function App() {
-  const { number } = useSelector((state) => state.counter);
+  const globalNumber = useSelector((state) => state.counter.number);
+  const [number, setNumber] = useState(0);
+
   const dispatch = useDispatch();
 
   const onPlusButtonClickHandler = () => {
-    dispatch(addNumber(1));
+    // dispatch(addNumber(+number));
+    dispatch(__addNumber(+number));
   };
   const onMinusButtonClickHandler = () => {
-    dispatch(minusNumber(1));
+    // dispatch(minusNumber(+number));
+    dispatch(__minusNumber(+number));
   };
 
   return (
-    <>
-      <h1>{number}</h1>
-      <button onClick={onPlusButtonClickHandler}>+</button>
-      <button onClick={onMinusButtonClickHandler}>-</button>
-    </>
+    <div>
+      <div>{globalNumber}</div>
+      <input
+        type="number"
+        onChange={(e) => {
+          setNumber(e.target.value);
+        }}
+      />
+
+      <button onClick={onPlusButtonClickHandler}>더하기</button>
+      <button onClick={onMinusButtonClickHandler}>빼기</button>
+    </div>
   );
 }
 
