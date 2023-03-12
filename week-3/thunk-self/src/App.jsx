@@ -4,14 +4,17 @@ import "./App.css";
 import { __getTodos } from "./redux/modules/todoSlice";
 
 function App() {
-  const data = useSelector((state) => state.todos);
+  const todos = useSelector((state) => state.todos);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(__getTodos());
   }, [dispatch]);
+  if {
+    
+  }
 
-  return <div> Thunk Self</div>;
+  return <div>{}</div>;
 }
 
 export default App;
