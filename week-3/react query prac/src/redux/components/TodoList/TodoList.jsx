@@ -12,7 +12,6 @@ import { useQuery } from "react-query";
  * @returns TodoList 컴포넌트
  */
 function TodoList({ isActive }) {
-  // const todos = useSelector((state) => state.todos);
   const { isLoading, isError, data } = useQuery("todos", getTodos);
 
   if (isLoading) {
